@@ -17,8 +17,8 @@ int main(void)
 {
   srand(time(0));
   
-  // we generate HIGHDIM dimensional gaussian balls N(mean,I) in random locations
-  // in hypercube [-10,10]^HIGHDIM. mean = random([-10,10]^HIGHDIM)
+  // we generate HIGHDIM dimensional uniform distributed means in random locations
+  // in hypercube [0,+1]^HIGHDIM. mean = uniform([0.1,0.9]^HIGHDIM)
   
   const unsigned int NUM_DATA = 1000; // was: 10.000
   
@@ -37,9 +37,7 @@ int main(void)
 
     for(unsigned int i=0;i<mean.size();i++){
       mean[i] = 2.0f*( ((float)rand())/((float)RAND_MAX) - 0.50f);
-    }
-    
-    for(unsigned int i=0;i<mean.size();i++){
+      
       float v1 = 0.8f;
       float v2 = 0.1f;
       mean[i] = v1*mean[i] + v2;
@@ -78,7 +76,8 @@ int main(void)
   }
 
   const unsigned int cube = (unsigned int)rval;
-  
+
+  // reduce dimensions to 3 (only 2 and 3 are supported)
   const unsigned int CUBE_DIMENSIONS = 3;
 
   if(cube_has_model(cube) == 0){
@@ -86,6 +85,7 @@ int main(void)
     fflush(stdout);
   }
 
+  // allocates C table of memory for preset data [C API uses C tables]
   float** presets_table = NULL;
 
   presets_table = (float**)malloc(sizeof(float*)*data.size());
@@ -108,12 +108,14 @@ int main(void)
     }
   }
 
+  // starts parameter reduction thread
   if(cube_start_calculate_parameter_reduction(cube, presets_table, data.size(), data[0].size(),
-					      CUBE_METHOD_TSNE, 3, 1.0f) == 0){
+					      CUBE_METHOD_TSNE, CUBE_DIMENSIONS, 1.0f) == 0){
     printf("Starting parameter reduction FAILED.\n");
     return -1;
   }
 
+  // frees allocated malloced table of presets (presets has been passed to computing thread)
   for(unsigned int i=0;i<data.size();i++){
     free(presets_table[i]);
   }
@@ -122,11 +124,13 @@ int main(void)
   presets_table = NULL;
 
 
+  // wait for computing to finish and reports verbose messages from optimizer thread
   while(cube_is_parameter_reducer_computing(cube)){
     char** messages = NULL;
 
     const unsigned int MSG_NUM = cube_get_unread_messages(cube, &messages);
 
+    // prints messages are free()s malloc()ed message table
     if(MSG_NUM && messages){
       for(unsigned int i=0;i<MSG_NUM;i++){
 	printf("%s\n", messages[i]);
@@ -140,6 +144,7 @@ int main(void)
     Sleep(1000);
   }
 
+  // computing has finished, checks whether cube has a model
   if(cube_has_model(cube) > 0){
 
     std::vector<float> z;
@@ -150,13 +155,11 @@ int main(void)
     z.resize(CUBE_DIMENSIONS);
     x.resize(CUBE_DIMENSIONS);
     
-    for(unsigned int i=0;i<x.size();i++){
-      x[i] = 2.0f*( ((float)rand())/((float)RAND_MAX) - 0.50f);
-    }
-
     for(unsigned int i=0;i<CUBE_DIMENSIONS;i++){
+      x[i] = 2.0f*( ((float)rand())/((float)RAND_MAX) - 0.50f);
+      
       z[i] = x[i];
-      z[i] *= 0.25;
+      z[i] *= 0.25; // z is [-0.25,+0.25] valued
     }
 
     float* rz = NULL;
@@ -173,6 +176,8 @@ int main(void)
       rz[i]= z[i];
     }
 
+    // actually calculates the mapped new preset from rz CUBE_DIMENIONS coordinates
+    // rz vector should have values between [-2,+2] (input parameters are approximately Normal(0,I) distributed vectors)
     int rv_dim = cube_restore(cube, rz, z.size(), &rv);
 
     if(rv_dim <= 0 || rv == NULL){
@@ -188,7 +193,7 @@ int main(void)
 
     free(rv); rv = NULL;
 
-    // whiteice::Cube c2;
+    // creates new cube and tests parameter transfer/load/save between cube models
     int rval2 = cube_init_new_cube();
     if(rval < 0){
       printf("ERROR: initializing new cube FAILED.\n");
@@ -231,6 +236,7 @@ int main(void)
       return -1;
     }
 
+    // checks that both cube models give same output with the same model parameters
     double e = 0.0;
 
     for(unsigned int i=0;i<restored.size();i++){
@@ -260,6 +266,7 @@ int main(void)
     return -1;
   }
 
+  // free()s cube models memory
   cube_free_cube(cube);
 
   printf("EVERYTHING OK\n");
