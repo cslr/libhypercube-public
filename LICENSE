@@ -1,28 +1,20 @@
-This software links with GPL libraries with "linking exception" and LGPL or other software
-which binaries are included in this release. They have their own licenses which don't cause
+This software links with GPL libraries with "linking exception" and LGPL or other software 
+which binaries are included in this release. They have their own licenses which don't cause 
 the binary DLL to be licensed under GPL.
 
-The libcube DLL file and related files are distributed under MIT license (below).
+The libhypercube DLL file and related files are distributed under following license.
 
 ================================================================================
-MIT License
+Novel Insight License
 
-Copyright (c) 2025 Tomas Ukkonen
+Copyright (c) 2026 Tomas Ukkonen
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Buyer of this software (libhypercube) is granted permission to use this 
+software library in any number of software products developed 
+by a single company or a single person who have bought the library software.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+You have no right to reverse-engineer the software. Software has been 
+tested with real VST parameters to give useful results but there is 
+no guarantee that with different datasets libhypercube will always 
+give useful results.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
