@@ -110,7 +110,7 @@ int main(void)
 
   // starts parameter reduction thread
   if(cube_start_calculate_parameter_reduction(cube, presets_table, data.size(), data[0].size(),
-					      CUBE_METHOD_TSNE, CUBE_DIMENSIONS, 1.0f) == 0){
+					      CUBE_METHOD_NONLINEAR, CUBE_DIMENSIONS, 1.0f) == 0){
     printf("Starting parameter reduction FAILED.\n");
     return -1;
   }

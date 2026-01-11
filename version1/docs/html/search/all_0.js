@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['cube_5fexport_5fmodel_0',['cube_export_model',['../cube__interface_8h.html#a19828a44e135ea043d346e430e68f709',1,'cube_interface.h']]],
+  ['cube_5ffree_5fcube_1',['cube_free_cube',['../cube__interface_8h.html#a10070a0bc4244c5574f004e72b1b38be',1,'cube_interface.h']]],
+  ['cube_5fget_5finput_5fdimensions_2',['cube_get_input_dimensions',['../cube__interface_8h.html#a596c61d38226677674a0464109a74372',1,'cube_interface.h']]],
+  ['cube_5fget_5frestored_5fdimensions_3',['cube_get_restored_dimensions',['../cube__interface_8h.html#aea878aee736949bf75e8d3e5d7ecee63',1,'cube_interface.h']]],
+  ['cube_5fget_5funread_5fmessages_4',['cube_get_unread_messages',['../cube__interface_8h.html#ac7fee8b119cf9c05252db12a9c520ee2',1,'cube_interface.h']]],
+  ['cube_5fhas_5fmodel_5',['cube_has_model',['../cube__interface_8h.html#a14fa6c9acb321750e2a449e05dff0bbf',1,'cube_interface.h']]],
+  ['cube_5fimport_5fmodel_6',['cube_import_model',['../cube__interface_8h.html#a4386811696f7c9f4aa6a07c7ace99f48',1,'cube_interface.h']]],
+  ['cube_5finit_5fnew_5fcube_7',['cube_init_new_cube',['../cube__interface_8h.html#a5b8c4fb6f14b8d75652f73a67e4ceefd',1,'cube_interface.h']]],
+  ['cube_5finterface_2eh_8',['cube_interface.h',['../cube__interface_8h.html',1,'']]],
+  ['cube_5fis_5fparameter_5freducer_5fcomputing_9',['cube_is_parameter_reducer_computing',['../cube__interface_8h.html#a11b26af3ebda1d28ab546e8f9fd1d189',1,'cube_interface.h']]],
+  ['cube_5fload_10',['cube_load',['../cube__interface_8h.html#a1ffed3108408b0799ea2f5a883687f7e',1,'cube_interface.h']]],
+  ['cube_5fmethod_5flinear_11',['CUBE_METHOD_LINEAR',['../cube__interface_8h.html#a28259cfff2e9272e2095f2c4f48a3186',1,'cube_interface.h']]],
+  ['cube_5fmethod_5fnonlinear_12',['CUBE_METHOD_NONLINEAR',['../cube__interface_8h.html#a7dd6c389aecfa880b5cc147b652b10d5',1,'cube_interface.h']]],
+  ['cube_5frestore_13',['cube_restore',['../cube__interface_8h.html#acecf9c6a94cd7a48c44d3a8bb333e0ab',1,'cube_interface.h']]],
+  ['cube_5fsave_14',['cube_save',['../cube__interface_8h.html#a23df636100159c12720c2dde6bedf626',1,'cube_interface.h']]],
+  ['cube_5fstart_5fcalculate_5fparameter_5freduction_15',['cube_start_calculate_parameter_reduction',['../cube__interface_8h.html#a164c3ac1a701dde993bc4fb4ac82a676',1,'cube_interface.h']]],
+  ['cube_5fstop_5fparameter_5freduction_5fcalculations_16',['cube_stop_parameter_reduction_calculations',['../cube__interface_8h.html#a5ffb9b22cc0e8279c52f434f1d37fda9',1,'cube_interface.h']]]
+];
