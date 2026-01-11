@@ -4,8 +4,8 @@ EXPORTS
     _cube_free_cube
     _cube_get_unread_messages
     _cube_start_calculate_parameter_reduction
-    _CUBE_METHOD_ICA
-    _CUBE_METHOD_TSNE
+    _CUBE_METHOD_LINEAR
+    _CUBE_METHOD_NONLINEAR
     _cube_is_parameter_reducer_computing
     _cube_stop_parameter_reduction_calculations
     _cube_has_model
@@ -20,8 +20,8 @@ EXPORTS
     cube_free_cube
     cube_get_unread_messages
     cube_start_calculate_parameter_reduction
-    CUBE_METHOD_ICA
-    CUBE_METHOD_TSNE
+    CUBE_METHOD_LINEAR
+    CUBE_METHOD_NONLINEAR
     cube_is_parameter_reducer_computing
     cube_stop_parameter_reduction_calculations
     cube_has_model
